@@ -1,5 +1,6 @@
 import Link from "next/link";
 import "./globals.css";
+import { Control } from "./Control.js";
 
 export const metadata = {
    title: "WEB Tutorials",
@@ -7,7 +8,7 @@ export const metadata = {
 }; 
 
 export default async function RootLayout({ children }) {
-  const resp = await fetch('http://localhost:9999/topics');
+  const resp = await fetch('http://localhost:9999/topics', {cache : 'no-store'}); // cache : no-store는 캐쉬데이터를 사용하지않는 방법임. 더 좋은 방법은 Revaildating 하는 것
   const topics = await resp.json();
   return (
     <html>
@@ -19,12 +20,7 @@ export default async function RootLayout({ children }) {
         })}
       </ol>
       {children}
-        <ul>
-          <li><Link href="/create">Create</Link></li>
-          <li><Link href="/update/1">Update</Link></li>
-          <li><input type="button" value="delete"/></li>
-        </ul>
-
+      <Control/>
       </body>
     </html>
   );

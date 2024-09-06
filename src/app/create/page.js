@@ -21,6 +21,7 @@ export default function Create() {
             .then(result=>{
                 const lastId = result.id;
                 router.push(`/read/${lastId}`);
+                router.refresh();
             })
         }}>
             <p>
