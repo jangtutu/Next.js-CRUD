@@ -1,7 +1,6 @@
 "use client"; //usePramas 를 사용하기 위해 컴포넌트를 따로 사용함
 import Link from 'next/link';
-import { useParams } from 'next/navigation'
-import { useRouter } from 'next/router';
+import { useParams, useRouter } from 'next/navigation'
 
 export function Control() {
     const params = useParams();
