@@ -8,7 +8,8 @@ export const metadata = {
 }; 
 
 export default async function RootLayout({ children }) {
-  const resp = await fetch('http://localhost:9999/topics', {cache : 'no-store'}); // cache : no-store는 캐쉬데이터를 사용하지않는 방법임. 더 좋은 방법은 Revaildating 하는 것
+  const resp = await fetch(process.env.NEXT_PUBLIC_API_URL+'topics', {cache : 'no-store'}); // cache : no-store는 캐쉬데이터를 사용하지않는 방법임. 더 좋은 방법은 Revaildating 하는 것
+  // process.env = 환경변수 , env.local에서 가져오는것, 서버컴퍼넌트에서만 가능
   const topics = await resp.json();
   return (
     <html>

@@ -14,7 +14,7 @@ export function Control() {
         <li><input type="button" value="delete" onClick={()=>{
             const options = {method: 'DELETE'}//서버로 보낼 메서드
 
-            fetch('http://localhost:9999/topics/'+id)
+            fetch(process.env.NEXT_PUBLIC_API_URL+'topics/'+id)
             .then(resp=>resp.json())
             .then(result=>{
                 router.push('/');

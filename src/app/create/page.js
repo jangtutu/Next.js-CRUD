@@ -16,7 +16,7 @@ export default function Create() {
                 },
                 body: JSON.stringify({title, body}) //JSON.stringify는 객체나 값을 JSON문자열로 변환하는 기능
             }
-            fetch(`http://localhost:9999/topics`, options)
+            fetch(process.env.NEXT_PUBLIC_API_URL+`topics`, options)
             .then(res=>res.json())
             .then(result=>{
                 const lastId = result.id;
